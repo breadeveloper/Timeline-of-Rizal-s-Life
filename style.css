@@ -1,0 +1,751 @@
+/* --- CSS Reset --- */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html, body {
+    overflow-x: hidden; 
+}
+
+/* --- Color Palette Variables --- */
+:root {
+    --dark-brown: #582F0E;
+    --med-brown: #7F4F24;
+    --light-brown: #936639;
+    --tan: #B6AD90;
+    --dark-green: #333D29;
+    --med-green: #414833;
+    --sage-green: #656D4A;
+    --light-sage: #C2C5AA;
+    --paper-color: #F4F1EA;
+}
+
+/* --- Base Styles --- */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Georgia', serif;
+    background-color: var(--dark-green);
+    color: var(--tan);
+}
+
+/* =========================================
+   HOVER DROP-DOWN NAVIGATION
+   ========================================= */
+.nav-trigger-area {
+    position: fixed;
+    top: 0; 
+    left: 0; 
+    width: 100%;
+    height: 60px;
+    z-index: 9999;
+    display: none; 
+}
+
+.sticky-hover-nav {
+    background-color: var(--dark-green);
+    border-bottom: 2px solid var(--light-brown);
+    transform: translateY(-100%);
+    transition: transform 0.4s cubic-bezier(0.33, 1, 0.68, 1);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    width: 100%;
+}
+
+.nav-trigger-area:hover .sticky-hover-nav,
+.sticky-hover-nav:hover {
+    transform: translateY(0); 
+}
+
+/* =========================================
+   HOME PAGE (Hero Section)
+   ========================================= */
+.museum-frame {
+    position: relative;
+    min-height: calc(100vh - 40px);
+    margin: 20px;
+    border: 1px solid var(--light-brown);
+    display: flex;
+    flex-direction: column;
+    outline: 1px solid var(--light-brown);
+    outline-offset: -6px;
+    background: radial-gradient(circle, var(--med-green) 0%, var(--dark-green) 100%);
+}
+
+.museum-nav {
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 15px;
+    z-index: 10;
+}
+
+.museum-nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.museum-nav li {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.museum-nav a {
+    display: inline-block;
+    padding: 8px 15px;
+    border: 1px solid var(--light-brown);
+    text-decoration: none;
+    color: var(--tan);
+    font-size: 0.8em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.museum-nav a:hover, .museum-nav a.active {
+    background-color: var(--med-brown);
+    color: #ffffff;
+}
+
+.hero-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 40px);
+}
+
+.hero-center {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    animation: fadeIn 1.5s ease-out;
+    padding-bottom: 50px;
+}
+
+.title-box {
+    border-top: 2px solid var(--tan);
+    border-bottom: 2px solid var(--tan);
+    padding: 20px 40px;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.title-box::before, .title-box::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 100%;
+    border-top: 2px solid var(--tan);
+    border-bottom: 2px solid var(--tan);
+    top: -2px;
+}
+
+.title-box::before { left: -10px; border-left: 2px solid var(--tan); }
+.title-box::after { right: -10px; border-right: 2px solid var(--tan); }
+
+.title-box h1 {
+    font-size: 3em;
+    margin: 0;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-weight: normal;
+}
+
+.hero-subtitle {
+    font-size: 1.1em;
+    font-weight: normal;
+    color: var(--tan);
+    font-style: italic;
+    margin-top: 10px;
+    letter-spacing: 1px;
+}
+
+/* =========================================
+   INTRODUCTION SECTION (Editorial Style)
+   ========================================= */
+.intro-section {
+    padding: 40px 40px 80px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* 3-Column Banner Setup */
+.intro-banner {
+    display: flex;
+    align-items: center; 
+    justify-content: space-between;
+    gap: 40px;
+    padding: 40px 0;
+    margin-bottom: 50px;
+    border-top: 1px solid var(--light-brown);
+    border-bottom: 1px solid var(--light-brown);
+}
+
+.intro-category {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    font-size: 0.75em;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--light-brown);
+}
+
+.intro-category::before {
+    content: '';
+    width: 40px;
+    height: 1px;
+    background-color: var(--light-brown);
+    margin-right: 15px;
+}
+
+.intro-headline {
+    flex: 2;
+}
+
+.intro-headline h2 {
+    font-size: 3.2em; 
+    color: #ffffff;
+    margin: 0;
+    font-weight: normal;
+    line-height: 1.1;
+}
+
+.intro-description {
+    flex: 1.5;
+    font-size: 1.05em;
+    line-height: 1.7;
+    color: var(--tan);
+    border-left: 1px solid rgba(147, 102, 57, 0.4); 
+    padding-left: 25px;
+}
+
+.intro-description p {
+    margin-top: 0;
+    margin-bottom: 10px;
+    text-align: justify;
+}
+
+.intro-description p:last-child {
+    margin-bottom: 0;
+}
+
+.intro-image img {
+    width: 100%;
+    height: auto;
+    border: 2px solid var(--tan);
+    border-radius: 4px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    opacity: 0.9;
+    transition: opacity 0.3s ease;
+}
+
+.intro-image img:hover {
+    opacity: 1;
+}
+
+.fade-on-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.fade-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =========================================
+   LIFE OF RIZAL (Interactive Timeline)
+   ========================================= */
+.timeline-section {
+    background-color: #EAE6D7; 
+    padding: 80px 20px;
+    border-top: 4px solid var(--dark-brown);
+    position: relative;
+    overflow: hidden;
+}
+
+.timeline-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.timeline-header h2 {
+    font-size: 2.8em;
+    color: var(--dark-brown);
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.timeline-header p {
+    font-size: 1.2em;
+    color: var(--sage-green);
+    letter-spacing: 5px;
+    margin-top: 5px;
+}
+
+.divider {
+    height: 2px; width: 60px;
+    background-color: var(--light-brown);
+    margin: 0 auto 30px auto;
+}
+
+.timeline-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+    padding: 20px 0;
+}
+
+.timeline-container::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    background-color: var(--light-brown);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+.timeline-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 80px;
+    position: relative;
+    width: 100%;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.timeline-marker {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 20px;
+    background-color: var(--tan);
+    border: 4px solid var(--dark-brown);
+    border-radius: 50%;
+    z-index: 10;
+    box-shadow: 0 0 0 4px rgba(88, 47, 14, 0.2); 
+}
+
+.timeline-image-box {
+    width: 45%; 
+}
+
+.timeline-image-box img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border: 8px solid #ffffff;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    border-radius: 2px;
+    background-color: #fff;
+    filter: sepia(0.2) contrast(1.1);
+}
+
+.timeline-parchment {
+    width: 45%;
+    background-color: var(--paper-color);
+    padding: 30px;
+    box-shadow: 2px 5px 15px rgba(0,0,0,0.1), inset 0 0 30px rgba(182, 173, 144, 0.1);
+    border: 1px solid #d4cdb3;
+    position: relative;
+}
+
+.timeline-parchment::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 15px; height: 15px;
+    border-top: 2px solid var(--light-brown);
+    border-left: 2px solid var(--light-brown);
+}
+
+.timeline-parchment::after {
+    content: '';
+    position: absolute;
+    bottom: 0; right: 0;
+    width: 15px; height: 15px;
+    border-bottom: 2px solid var(--light-brown);
+    border-right: 2px solid var(--light-brown);
+}
+
+.timeline-date {
+    display: inline-block;
+    background-color: var(--dark-green);
+    color: var(--tan);
+    padding: 4px 12px;
+    font-size: 0.85em;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.timeline-parchment h3 {
+    margin: 0 0 15px 0;
+    color: var(--dark-brown);
+    font-size: 1.6em;
+    border-bottom: 1px dashed var(--light-sage);
+    padding-bottom: 8px;
+}
+
+.timeline-parchment p {
+    margin: 0;
+    color: var(--med-green);
+    line-height: 1.7;
+    text-align: justify;
+    font-size: 1.05em;
+}
+
+.slide-in-element.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.98); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* =========================================
+   EXTENDED POP-UP MODAL
+   ========================================= */
+
+/* The 'View Extended' Link */
+.view-extended-container {
+    text-align: right;
+    margin-top: 20px;
+}
+
+.view-extended {
+    color: #333D29; /* Red link color */
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.view-extended:hover {
+    color: #990000;
+}
+
+/* Modal Overlay (Dark background) */
+.modal-overlay {
+    position: fixed;
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Darken background to focus on parchment */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Reusing the parchment styling for the modal content */
+.modal-content {
+    width: 90%;
+    max-width: 700px;
+    max-height: 80vh;
+    overflow-y: auto;
+    position: relative;
+    transform: translateY(-20px);
+    transition: transform 0.3s ease;
+}
+
+.modal-overlay.active .modal-content {
+    transform: translateY(0);
+}
+
+.close-modal {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 2.5em;
+    color: var(--dark-brown);
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.2s ease;
+    z-index: 10;
+}
+
+.close-modal:hover {
+    color: #cc0000;
+}
+
+/* Bullet points inside the modal */
+#modal-body ul {
+    color: var(--med-green);
+    line-height: 1.8;
+    font-size: 1.1em;
+    padding-left: 20px;
+    margin-top: 0;
+}
+
+#modal-body li {
+    margin-bottom: 12px;
+    text-align: justify;
+}
+
+#modal-body strong {
+    color: var(--dark-brown);
+}
+
+/* =========================================
+   FULL WIDTH SEPARATOR (Rizal Writing)
+   ========================================= */
+.full-width-separator {
+    width: 100%;
+    height: 60vh; /* Gives it a cinematic, widescreen height */
+    position: relative;
+    overflow: hidden;
+    border-top: 4px solid var(--dark-brown);
+    border-bottom: 4px solid var(--dark-brown);
+}
+
+.full-width-separator img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 20%; /* Centers the focus on his face and desk */
+    display: block;
+    opacity: 0.85; /* Softens the image slightly to match the vintage feel */
+    filter: sepia(0.2) contrast(1.1); /* Warms up the tones */
+}
+
+/* =========================================
+   THE MASTERPIECES (Novels Section)
+   ========================================= */
+.novels-section {
+    background-color: var(--dark-green); /* Dark background creates a dramatic contrast */
+    padding: 80px 20px 100px;
+    color: var(--tan);
+}
+
+.novels-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.novels-header h2 {
+    font-size: 2.8em;
+    color: #ffffff;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: normal;
+}
+
+.novels-header p {
+    font-size: 1.2em;
+    color: var(--light-sage);
+    letter-spacing: 5px;
+    margin-top: 5px;
+    text-transform: uppercase;
+}
+
+.novels-container {
+    display: flex;
+    justify-content: center;
+    align-items: stretch; /* Makes both parchment boxes equal height */
+    gap: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.novel-card {
+    flex: 1;
+    display: flex;
+}
+
+/* Overriding some timeline-parchment rules specifically for the novels */
+.novel-content {
+    width: 100%; 
+    display: flex;
+    flex-direction: column;
+}
+
+.novel-subtitle {
+    font-style: italic;
+    color: var(--light-brown) !important;
+    font-size: 0.95em !important;
+    margin-top: -10px !important; 
+    margin-bottom: 15px !important;
+    border-bottom: none !important;
+}
+
+/* =========================================
+   NOVEL BOOK COVERS STYLING
+   ========================================= */
+.novel-image-box {
+    width: 100%;
+    max-height: 320px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    border: 2px solid var(--light-brown);
+    background-color: #fcf9f2;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.novel-image-box img {
+    width: 100%;
+    height: 100%;
+    max-height: 300px;
+    object-fit: contain; /* Ensures the whole book cover fits without cutting off edges */
+    display: block;
+}
+
+/* =========================================
+   QUOTE SECTION
+   ========================================= */
+.quote-section {
+  background-color: var(--paper-color);
+  padding: 100px 20px;
+  text-align: center;
+  border-bottom: 4px solid var(--dark-brown);
+  position: relative;
+}
+
+.quote-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.quote-container blockquote {
+  font-size: 2.8em;
+  color: var(--dark-brown);
+  margin: 0 0 30px 0;
+  line-height: 1.3;
+  font-style: italic;
+}
+
+.quote-container cite {
+  font-size: 1em;
+  color: var(--med-green);
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-style: normal;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quote-container cite::before {
+  content: "";
+  display: inline-block;
+  width: 50px;
+  height: 1px;
+  background-color: var(--light-brown);
+  margin-right: 15px;
+}
+
+/* =========================================
+   FOOTER SECTION
+   ========================================= */
+.site-footer {
+  background-color: var(--dark-green);
+  color: var(--tan);
+  padding: 60px 20px 40px;
+  text-align: center;
+  border-top: 2px solid var(--light-brown);
+}
+
+.footer-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.footer-title {
+  color: #ffffff;
+  font-size: 1.4em;
+  margin: 0 0 5px 0;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: normal;
+}
+
+.footer-subtitle {
+  color: var(--light-brown);
+  font-style: italic;
+  margin: 0 0 30px 0;
+  font-size: 1.05em;
+}
+
+.footer-details {
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.footer-details p {
+  margin: 5px 0;
+  color: var(--light-sage);
+}
+
+.footer-details .creators {
+  font-size: 1.1em;
+  color: var(--tan);
+}
+
+.footer-legal {
+  font-size: 0.85em;
+  color: #8c927b; /* A slightly muted tone for legal text */
+  border-top: 1px solid rgba(147, 102, 57, 0.3);
+  padding-top: 20px;
+  margin-bottom: 40px;
+  line-height: 1.5;
+}
+
+.footer-legal p {
+  margin: 5px 0;
+}
+
+.back-to-top {
+  display: inline-block;
+  text-decoration: none;
+  color: var(--tan);
+  border: 1px solid var(--light-brown);
+  padding: 10px 20px;
+  font-size: 0.85em;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.back-to-top:hover {
+  background-color: var(--med-brown);
+  color: #ffffff;
+}
+
+.back-to-top .arrow-up {
+  margin-right: 8px;
+  font-size: 1.2em;
+  vertical-align: middle;
+}
